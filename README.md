@@ -1,9 +1,13 @@
 # TextMap
 
-TextMap is a security tool that lets you hide sensitive information within ordinary text, making it ideal for safely storing cryptocurrency mnemonic phrases, passwords, or other secrets in digital format.
+TextMap is a security tool that lets you hide sensitive information within ordinary text, making it ideal for safely storing cryptocurrency mnemonic phrases, passwords, or other secrets in digital format. What makes it unique is that both the encoded text and the key can be safely shared or stored independently in public - for example, you can post the encoded text on social media and share the key through a different channel. As long as no one can associate which key belongs to which text, your secret remains secure.
 
 ## What Makes It Special
 
+- **Safe Public Sharing**: Both components (encoded text and key) can be safely shared in public on their own:
+  - The encoded text looks like normal text and can be posted anywhere online
+  - The key can be shared through any channel without risk
+  - Security is maintained as long as the components aren't associated
 - **Steganographic Security**: Instead of traditional encryption, TextMap hides your secret information within regular text, making it non-obvious that any secret exists
 - **Two-Factor Security**: Requires both the encoded text AND a separate key to recover your secret
 - **Format Preservation**: The encoded text remains readable and looks like normal text
@@ -81,6 +85,10 @@ TextMap uses a unique security approach different from traditional encryption:
 ### Security Properties
 
 - **Two Components**: Both the encoded text AND the key are required to recover the secret
+- **Independent Component Security**: Each component (encoded text and key) can be safely shared or stored independently:
+  - The encoded text looks like normal text and can be shared publicly
+  - The key can be shared through different channels without risk
+  - Security is maintained as long as no one can associate which key goes with which text
 - **No Password Cracking**: Unlike password-based encryption, there's nothing to "crack"
 - **Quantum Safety**: Doesn't rely on traditional cryptographic algorithms that might be vulnerable to quantum computers
 - **Plausible Deniability**: Unlike encrypted files that are clearly encrypted, encoded text appears as natural readable text, making it impossible to prove that it contains hidden information
@@ -116,8 +124,11 @@ Keys are structured as: `v1-[length]-[main_key]-[offsets]`
    - Prefer longer, natural-looking text
    - Never reuse the same source text for multiple secrets
 
-2. **Storage**
-   - Never store the key with the encoded text
+2. **Storage and Sharing**
+   - Never store or share the key alongside its corresponding encoded text
+   - The encoded text can be safely stored/shared publicly (e.g., in emails, documents, social media)
+   - The key can be shared through separate channels (e.g., password manager, secure messaging)
+   - Ensure there's no obvious way to link which key belongs to which text
    - Consider splitting key storage:
      - Part in password manager
      - Part in secure physical location
